@@ -11,7 +11,12 @@ def cinema_visit(
     cleaner: str,
 ) -> None:
     if isinstance(movie, list) and isinstance(customers, int):
-        movie, customers, hall_number, cleaner = cleaner, movie, customers, hall_number
+        movie, customers, hall_number, cleaner = (
+            cleaner,
+            movie,
+            customers,
+            hall_number,
+        )
 
     customer_objects = [
         Customer(name=c["name"], food=c["food"])
@@ -28,4 +33,3 @@ def cinema_visit(
         customers=customer_objects,
         cleaning_staff=cleaner_object,
     )
-
