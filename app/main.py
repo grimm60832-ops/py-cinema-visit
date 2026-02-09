@@ -5,10 +5,10 @@ from app.people.cinema_staff import Cleaner
 
 
 def cinema_visit(
-    movie: str,
     customers: list[dict[str, str]],
     hall_number: int,
     cleaner: str,
+    movie: str,
 ) -> None:
     customer_objects = [
         Customer(name=c["name"], food=c["food"])
@@ -20,6 +20,7 @@ def cinema_visit(
 
     cleaner_object = Cleaner(name=cleaner)
     hall = CinemaHall(number=hall_number)
+
     hall.movie_session(
         movie_name=movie,
         customers=customer_objects,
