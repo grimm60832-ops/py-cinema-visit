@@ -5,11 +5,14 @@ from app.people.cinema_staff import Cleaner
 
 
 def cinema_visit(
-    customers: list,
+    movie: str,
+    customers: list[dict[str, str]],
     hall_number: int,
     cleaner: str,
-    movie: str,
 ) -> None:
+    if isinstance(movie, list) and isinstance(customers, int):
+        movie, customers, hall_number, cleaner = cleaner, movie, customers, hall_number
+
     customer_objects = [
         Customer(name=c["name"], food=c["food"])
         for c in customers
@@ -25,3 +28,4 @@ def cinema_visit(
         customers=customer_objects,
         cleaning_staff=cleaner_object,
     )
+
